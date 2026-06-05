@@ -6,6 +6,7 @@ import Cursor from './components/Cursor';
 import Hero from './components/Hero';
 import SocialProofBar from './components/SocialProofBar';
 import Features from './components/Features';
+import CardStacking from './components/CardStacking';
 import Comparison from './components/Comparison';
 import Stats from './components/Stats';
 import Testimonials from './components/Testimonials';
@@ -92,6 +93,7 @@ function App() {
       <Hero />
       <SocialProofBar />
       <Features />
+      <CardStacking />
       <Comparison />
       <Stats />
       <Testimonials />

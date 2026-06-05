@@ -162,16 +162,19 @@ export default function Features() {
   
   useEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.set(".feature-card", { transformOrigin: "bottom center" });
       gsap.from(".feature-card", {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
+          toggleActions: "play none none reverse",
         },
+        scaleY: 0,
         y: 60,
         opacity: 0,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "power2.out"
+        stagger: 0.2,
+        duration: 2,
+        ease: "elastic.out(1, 0.7)"
       });
     }, sectionRef);
     return () => ctx.revert();

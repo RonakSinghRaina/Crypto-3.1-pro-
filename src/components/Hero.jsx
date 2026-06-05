@@ -51,7 +51,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative w-full h-[100dvh] flex items-end pb-24 pl-6 md:pl-20 overflow-hidden">
+    <section ref={heroRef} className="relative w-full min-h-[100dvh] flex items-center pl-6 md:pl-20 overflow-hidden pt-20 pb-10">
       <Navbar visible={navVisible} />
       
       {/* 3D Canvas Background */}
@@ -66,10 +66,7 @@ export default function Hero() {
 
       {/* Content */}
       <div ref={contentRef} className="relative z-20 max-w-5xl">
-        <h1 className="font-sans font-bold text-primary uppercase tracking-wider text-[clamp(1.5rem,3vw,2.5rem)] opacity-0 translate-y-[50px] mb-2 flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_10px_#00FF87]"></span>
-          System Online
-        </h1>
+
         <h2 className="font-drama italic text-[clamp(4.5rem,10vw,11rem)] leading-[0.85] mb-8 opacity-0 translate-y-[50px]">
           Track every wallet. <br/> <span className="text-gradient">Dominate the chain.</span>
         </h2>

@@ -4,6 +4,7 @@ import * as THREE from 'three';
 
 export default function ParticleField() {
   const pointsRef = useRef();
+  const shapeRef = useRef();
   
   const particleCount = 1500;
   
@@ -41,32 +42,50 @@ export default function ParticleField() {
     
     pointsRef.current.rotation.x = THREE.MathUtils.lerp(pointsRef.current.rotation.x, mouseY, 0.05);
     pointsRef.current.rotation.y += THREE.MathUtils.lerp(0, mouseX, 0.05);
+
+    if (shapeRef.current) {
+      shapeRef.current.rotation.x = THREE.MathUtils.lerp(shapeRef.current.rotation.x, mouseY * 0.5, 0.02);
+      shapeRef.current.rotation.y += THREE.MathUtils.lerp(0.001, mouseX * 0.5, 0.02);
+    }
   });
 
   return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={particles.positions}
-          itemSize={3}
+    <>
+      <points ref={pointsRef}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            count={particleCount}
+            array={particles.positions}
+            itemSize={3}
+          />
+          <bufferAttribute
+            attach="attributes-color"
+            count={particleCount}
+            array={particles.colors}
+            itemSize={3}
+          />
+        </bufferGeometry>
+        <pointsMaterial
+          size={0.15}
+          vertexColors
+          transparent
+          opacity={0.8}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
         />
-        <bufferAttribute
-          attach="attributes-color"
-          count={particleCount}
-          array={particles.colors}
-          itemSize={3}
+      </points>
+
+      {/* Hexagonal 3D Wireframe Shape */}
+      <mesh ref={shapeRef} position={[12, 0, -5]}>
+        <icosahedronGeometry args={[14, 2]} />
+        <meshBasicMaterial 
+          color="#E2FF4D" 
+          wireframe={true} 
+          transparent={true} 
+          opacity={0.25} 
         />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.15}
-        vertexColors
-        transparent
-        opacity={0.8}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </points>
+      </mesh>
+    </>
   );
 }
