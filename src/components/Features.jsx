@@ -157,6 +157,10 @@ function SignalGraph() {
   );
 }
 
+import TextScramble from './TextScramble';
+
+import SpotlightCard from './SpotlightCard';
+
 export default function Features() {
   const sectionRef = useRef(null);
   
@@ -183,16 +187,16 @@ export default function Features() {
   return (
     <section id="features" ref={sectionRef} className="py-32 px-6 md:px-20 max-w-7xl mx-auto">
       <div className="mb-20 max-w-3xl">
-        <h2 className="font-drama italic text-5xl md:text-7xl mb-6">The Edge You Need.</h2>
+        <TextScramble as="h2" className="font-drama italic text-5xl md:text-7xl mb-6" text="The Edge You Need." />
         <p className="font-mono text-foreground/70 text-lg">
           We don't build generic dashboards. We build instruments for precision execution. Everything you need to snipe opportunities before the crowd.
         </p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="feature-card"><DiagnosticShuffler /></div>
-        <div className="feature-card"><TelemetryTypewriter /></div>
-        <div className="feature-card"><SignalGraph /></div>
+        <div className="feature-card h-full"><SpotlightCard className="h-full"><DiagnosticShuffler /></SpotlightCard></div>
+        <div className="feature-card h-full"><SpotlightCard className="h-full"><TelemetryTypewriter /></SpotlightCard></div>
+        <div className="feature-card h-full"><SpotlightCard className="h-full"><SignalGraph /></SpotlightCard></div>
       </div>
     </section>
   );

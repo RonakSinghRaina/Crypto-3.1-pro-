@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import gsap from 'gsap';
 import ParticleField from './ParticleField';
 import Navbar from './Navbar';
+import MagneticWrapper from './MagneticWrapper';
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -73,12 +74,14 @@ export default function Hero() {
         <p className="font-mono text-foreground/70 max-w-[500px] text-sm md:text-base leading-relaxed opacity-0 translate-y-[50px]">
           The ultimate portfolio tracker giving you real-time visibility into holdings, PnL, gas fees, and market signals across every chain. Latency is loss.
         </p>
-        <button 
-          data-interactive 
-          className="mt-10 px-10 py-5 bg-primary text-background font-sans font-bold text-lg rounded-full hover:bg-secondary transition-all duration-300 opacity-0 translate-y-[50px] shadow-[0_0_30px_rgba(200,244,0,0.3)] hover:shadow-[0_0_40px_rgba(0,255,135,0.4)]"
-        >
-          Connect Wallet — 60s Setup
-        </button>
+        <MagneticWrapper strength={60}>
+          <button 
+            data-interactive 
+            className="mt-10 px-10 py-5 bg-primary text-background font-sans font-bold text-lg rounded-full hover:bg-secondary transition-all duration-300 opacity-0 translate-y-[50px] shadow-[0_0_30px_rgba(200,244,0,0.3)] hover:shadow-[0_0_40px_rgba(0,255,135,0.4)]"
+          >
+            Connect Wallet — 60s Setup
+          </button>
+        </MagneticWrapper>
       </div>
     </section>
   );

@@ -51,6 +51,8 @@ const cards = [
   }
 ];
 
+import TextScramble from './TextScramble';
+
 export default function CardStacking() {
   const containerRef = useRef(null);
 
@@ -80,7 +82,7 @@ export default function CardStacking() {
   return (
     <section ref={containerRef} className="py-32 px-6 md:px-20 max-w-7xl mx-auto relative z-10">
       <div className="mb-20 max-w-3xl">
-        <h2 className="font-drama italic text-5xl md:text-7xl mb-6">The System.</h2>
+        <TextScramble as="h2" className="font-drama italic text-5xl md:text-7xl mb-6" text="The System." />
         <p className="font-mono text-foreground/70 text-lg">
           A radically new architecture built for speed and precision.
         </p>

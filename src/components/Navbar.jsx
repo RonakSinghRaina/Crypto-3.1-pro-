@@ -1,3 +1,5 @@
+import MagneticWrapper from './MagneticWrapper';
+
 export default function Navbar({ visible }) {
   return (
     <nav 
@@ -13,9 +15,11 @@ export default function Navbar({ visible }) {
         <a href="#comparison" className="hover:text-primary transition-colors uppercase tracking-wider">Edge</a>
         <a href="#testimonials" className="hover:text-primary transition-colors uppercase tracking-wider">Traders</a>
       </div>
-      <button data-interactive className="bg-panel border border-primary/30 text-primary px-4 py-2 rounded-full font-sans text-xs font-bold hover:bg-primary hover:text-background transition-colors shadow-[0_0_15px_rgba(200,244,0,0.2)]">
-        Go Live
-      </button>
+      <MagneticWrapper>
+        <button data-interactive className="bg-panel border border-primary/30 text-primary px-4 py-2 rounded-full font-sans text-xs font-bold hover:bg-primary hover:text-background transition-colors shadow-[0_0_15px_rgba(200,244,0,0.2)]">
+          Go Live
+        </button>
+      </MagneticWrapper>
     </nav>
   );
 }
