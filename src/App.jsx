@@ -8,6 +8,7 @@ import SocialProofBar from './components/SocialProofBar';
 import Features from './components/Features';
 import CardStacking from './components/CardStacking';
 import Comparison from './components/Comparison';
+import TextMaskTransition from './components/TextMaskTransition';
 import Stats from './components/Stats';
 import Testimonials from './components/Testimonials';
 import FinalCTA from './components/FinalCTA';
@@ -94,6 +95,7 @@ function App() {
       <SocialProofBar />
       <Features />
       <CardStacking />
+      <TextMaskTransition />
       <Comparison />
       <Stats />
       <Testimonials />
